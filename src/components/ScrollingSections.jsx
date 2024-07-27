@@ -1,4 +1,4 @@
-// src/components/ScrollingSections.js
+
 import React from 'react';
 
 const ScrollingSections = () => {
@@ -18,9 +18,9 @@ const ScrollingSections = () => {
           </div>
         ))}
       </div>
-      <div className="overflow-y-auto h-64">
+      <div className="overflow-y-auto h-64 md:h-auto md:flex md:flex-col md:space-y-4">
         {images.map((image, index) => (
-          <div key={index} className="w-full h-32 bg-gray-300 flex items-center justify-center mb-4">
+          <div key={index} className="w-full h-32 bg-gray-300 flex items-center justify-center mb-4 md:mb-0">
             {image}
           </div>
         ))}

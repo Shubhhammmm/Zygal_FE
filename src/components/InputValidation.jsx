@@ -1,4 +1,3 @@
-// src/components/InputValidation.js
 import React, { useState } from 'react';
 
 const InputValidation = () => {
@@ -9,12 +8,18 @@ const InputValidation = () => {
 
   const validateEmail = (value) => {
     setEmail(value);
-    setEmailValid(value.includes('@') && value.includes('.'));
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    setEmailValid(emailPattern.test(value));
   };
 
   const validatePassword = (value) => {
     setPassword(value);
-    setPasswordValid(value.length >= 6);
+    const minLength = value.length >= 8;
+    const hasUppercase = /[A-Z]/.test(value);
+    const hasLowercase = /[a-z]/.test(value);
+    const hasNumber = /\d/.test(value);
+    const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(value);
+    setPasswordValid(minLength && hasUppercase && hasLowercase && hasNumber && hasSpecialChar);
   };
 
   return (
