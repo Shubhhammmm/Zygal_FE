@@ -1,0 +1,51 @@
+// src/components/InputValidation.js
+import React, { useState } from 'react';
+
+const InputValidation = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [emailValid, setEmailValid] = useState(null);
+  const [passwordValid, setPasswordValid] = useState(null);
+
+  const validateEmail = (value) => {
+    setEmail(value);
+    setEmailValid(value.includes('@') && value.includes('.'));
+  };
+
+  const validatePassword = (value) => {
+    setPassword(value);
+    setPasswordValid(value.length >= 6);
+  };
+
+  return (
+    <div className="w-full max-w-md mx-auto mt-10">
+      <div className="flex justify-center mb-6">
+        <img
+          src="https://img.freepik.com/premium-vector/man-avatar-profile-picture-vector-illustration_268834-538.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1721952000&semt=sph"
+          alt="Profile"
+          className="rounded-full w-[20%] h-[10%] border-gray-300"
+        />
+      </div>
+      <div className="mb-4">
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => validateEmail(e.target.value)}
+          className={`w-full p-2 border ${emailValid === null ? '' : emailValid ? 'border-green-500' : 'border-red-500'}`}
+        />
+      </div>
+      <div className="mb-4">
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => validatePassword(e.target.value)}
+          className={`w-full p-2 border ${passwordValid === null ? '' : passwordValid ? 'border-green-500' : 'border-red-500'}`}
+        />
+      </div>
+    </div>
+  );
+};
+
+export default InputValidation;
