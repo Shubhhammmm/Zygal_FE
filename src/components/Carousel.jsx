@@ -37,7 +37,7 @@ const Carousel = () => {
         </div>
       </div>
       <div className="flex justify-center mt-4">
-        <button className="bg-blue-600 text-white py-2 px-4 rounded">Static Button</button>
+        <button className="bg-blue-600 w-full text-white py-2 px-4 rounded">Static Button</button>
       </div>
     </div>
   );
